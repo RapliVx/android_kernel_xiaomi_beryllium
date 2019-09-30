@@ -133,6 +133,7 @@ typedef union {
 	LZ4HC_CCtx_internal internal_donotuse;
 } LZ4_streamHC_t;
 
+#if 0
 /*
  * LZ4_streamDecode_t - information structure to track an
  *	LZ4 stream during decompression.
@@ -149,6 +150,7 @@ typedef union {
 	unsigned long long table[LZ4_STREAMDECODESIZE_U64];
 	LZ4_streamDecode_t_internal internal_donotuse;
 } LZ4_streamDecode_t;
+#endif
 
 /*-************************************************************************
  *	SIZE OF STATE
@@ -209,6 +211,7 @@ static inline int lz4_compressbound(size_t isize)
 int LZ4_compress_default(const char *source, char *dest, int inputSize,
 	int maxOutputSize, void *wrkmem);
 
+#if 0
 /**
  * LZ4_compress_fast() - As LZ4_compress_default providing an acceleration param
  * @source: source address of the original data
@@ -256,6 +259,7 @@ static int LZ4_compress_fast(const char *source, char *dest, int inputSize,
  */
 static int LZ4_compress_destSize(const char *source, char *dest, int *sourceSizePtr,
 	int targetDestSize, void *wrkmem);
+#endif
 
 /*
  * lz4_compress() - For backward compatibility, see LZ4_compress_default
@@ -318,6 +322,7 @@ int LZ4_decompress_fast(const char *source, char *dest, int originalSize);
 int LZ4_decompress_safe(const char *source, char *dest, int compressedSize,
 	int maxDecompressedSize);
 
+#if 0
 /**
  * LZ4_decompress_safe_partial() - Decompress a block of size 'compressedSize'
  *	at position 'source' into buffer 'dest'
@@ -345,6 +350,7 @@ int LZ4_decompress_safe(const char *source, char *dest, int compressedSize,
  */
 static int LZ4_decompress_safe_partial(const char *source, char *dest,
 	int compressedSize, int targetOutputSize, int maxDecompressedSize);
+#endif
 
 /*
  * lz4_decompress_unknownoutputsize() - For backwards compatibility,
@@ -400,6 +406,7 @@ int lz4_decompress(const unsigned char *src, size_t *src_len,
 int LZ4_compress_HC(const char *src, char *dst, int srcSize, int dstCapacity,
 	int compressionLevel, void *wrkmem);
 
+#if 0
 /**
  * lz4hc_compress() - For backwards compatibility, see LZ4_compress_HC
  * @src: source address of the original data
@@ -713,5 +720,6 @@ static int LZ4_decompress_safe_usingDict(const char *source, char *dest,
  */
 static int LZ4_decompress_fast_usingDict(const char *source, char *dest,
 	int originalSize, const char *dictStart, int dictSize);
+#endif
 
 #endif
