@@ -354,4 +354,9 @@ config ARCH_ZYNQMP
 	help
 	  This enables support for Xilinx ZynqMP Family
 
+config ARCH_HAS_SET_MEMORY
+	bool  "SET MEMORY"
+	help
+	  This enables support for set memory
+
 endmenu
