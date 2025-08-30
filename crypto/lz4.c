@@ -100,12 +100,13 @@ static int __lz4_decompress_crypto(const u8 *src, unsigned int slen,
 	size_t tmp_len = *dlen;
 	size_t __slen = slen;
 
-	err = lz4_decompress_unknownoutputsize(src, __slen, dst, &tmp_len);
-	if (err < 0)
+	int ret = LZ4_decompress_safe(src, dst, __slen, tmp_len);
+	if (ret < 0)
 		return -EINVAL;
 
-	*dlen = tmp_len;
-	return err;
+	*dlen = ret;
+	return 0;
+
 }
 
 static int lz4_sdecompress(struct crypto_scomp *tfm, const u8 *src,
