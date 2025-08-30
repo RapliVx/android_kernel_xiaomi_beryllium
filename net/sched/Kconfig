@@ -3,10 +3,11 @@
 # 
 
 menuconfig NET_SCHED
-	def_bool y
+	bool "QoS and/or fair queueing"
+	default y
 	select NET_SCH_FIFO
 	select NET_SCH_FQ_CODEL
-	---help---
+	help
 	  When the kernel has several packets to send out over a network
 	  device, it has to decide which ones to send first, which ones to
 	  delay, and which ones to drop. This is the job of the queueing
